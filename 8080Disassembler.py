@@ -2,7 +2,7 @@
 
 def loadBinaryFile():
     # load file.
-    with open("../rom/invaders.h", "rb") as f:
+    with open("rom\invaders.h", "rb") as f:
         fileBuffer = f.read()
 
     # convert binary list to hex.
