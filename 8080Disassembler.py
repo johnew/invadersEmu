@@ -73,12 +73,18 @@ def emulate_8080(state):
         #state.cc.p = Parity(answer & 0xff)
         state.a = answer & 0xff
     if opcode == "0x81":
-            answer = 0#state.a + state.c    
+            answer = state.a + state.c    
             state.cc.z = 1 if ((answer & 0xff) == 0) else 0
             state.cc.s = 1 if ((answer & 0x80) != 0) else 0   
             state.cc.cy = 1 if (answer > 0xff) else 0
             #state.cc.p = Parity(answer&0xff)  
             state.a = answer & 0xff   
+    if opcode == "0xc6": # A <- A + byte
+        answer = state.a + opcode[1]
+        state.cc.z = 1 if ((answer & 0xff) == 0) else 0
+        state.cc.s = 1 if ((answer & 0x80) != 0) else 0   
+        state.cc.cy = 1 if (answer > 0xff) else 0
+
 
 def loadBinaryFile(state):
     # load file.
