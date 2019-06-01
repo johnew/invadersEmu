@@ -16,7 +16,7 @@ class State8080():
 
     def do_instruction():
         pass
-        #TODO: Input hexcode and do the instruction
+        #TODO: Input hexcode and do the instruction, OG JOHN IS SHARK WITH PINK SUNGLASSES
 
 
 class ConditionCodes():
@@ -84,6 +84,8 @@ def emulate_8080(state):
         state.cc.z = 1 if ((answer & 0xff) == 0) else 0
         state.cc.s = 1 if ((answer & 0x80) != 0) else 0   
         state.cc.cy = 1 if (answer > 0xff) else 0
+        state.a = answer & 0xff
+    
 
 
 def loadBinaryFile(state):
