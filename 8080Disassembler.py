@@ -88,7 +88,7 @@ def emulate_8080(state):
 
 def loadBinaryFile(state):
     # load file.
-    with open("rom\invaders", "rb") as f:
+    with open("rom/invaders", "rb") as f:
         fileBuffer = f.read()
 
     # convert binary list to hex.
